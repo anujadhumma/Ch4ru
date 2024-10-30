@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charu 4U - Elegant Sarees</title>
     <style>
-        /* General Styling */
+          /* General Styling */
         body {
             font-family: 'Times New Roman', serif;
             background-color: #ffffff;
@@ -74,6 +74,14 @@
             margin: 0 auto;
         }
 
+        .section {
+            display: none; /* Hide all sections by default */
+        }
+
+        .section.active {
+            display: block; /* Show active section */
+        }
+
         /* Saree Display Section */
         .saree-item {
             display: inline-block;
@@ -101,7 +109,7 @@
 
         .saree-price {
             font-size: 14px;
-            color: #007acc;
+           
         }
 
         /* Saree Details Modal */
@@ -141,13 +149,37 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .about-us {
+            display: inline-block;
+            text-align: center;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .about-us img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+        }
 
     </style>
     <script>
+        // Function to toggle section visibility
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Function to show Saree Details modal
         function showSareeDetails() {
             document.getElementById('saree-details').style.display = 'block';
         }
 
+        // Function to close Saree Details modal
         function closeSareeDetails() {
             document.getElementById('saree-details').style.display = 'none';
         }
@@ -155,40 +187,105 @@
 </head>
 <body>
 
-    <!-- Header with Logo and Navbar -->
+    <body>
+
+        <!-- Header with Logo and Navbar -->
     <header class="header">
         <div class="logo">Charu 4U</div>
         <nav class="navbar">
-            <a href="#home" onclick="showSection('home')">Home</a>
-            <a href="#about" onclick="showSection('about')">About Us</a>
-            <a href="#contact" onclick="showSection('contact')">Contact Us</a>
-            <a href="#help" onclick="showSection('help')">Help</a>
+            <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
+            <a href="javascript:void(0);" onclick="showSection('about')">About</a>
+            <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
+            <a href="javascript:void(0);" onclick="showSection('help')">Help</a>
         </nav>
     </header>
 
-    <!-- Main Content Sections -->
+        
+        <!-- Main Content Sections -->
     <main class="content">
-        <div id="home" class="section">
-            <h1>Welcome to Charu 4U!</h1>
+        <div id="home" class="section active">
+            <h1>Welcome to Ch4rU!</h1>
             <p>Discover our collection of elegant, affordable, and unique sarees from across India.</p>
+            <!-- Saree Display -->
+           <!-- Flip Card for Sarees -->
+            <div class="saree-item" onclick="toggleFlip(event)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="C:\Users\anuja\OneDrive\Desktop\Sarees\images\WhatsApp Image 2024-10-27 at 7.05.19 PM (1).jpeg" alt="Banarasi Tissue Saree">
+                        <div class="saree-name">Banarasi Tissue Saree</div>
+                <div class="saree-price">₹1900 (Shipping Included)</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Banarasi Tissue Saree</h2>
+                        <p><strong>Price:</strong> ₹1900 (Shipping Included)</p>
+                        <p><strong>Color:</strong> Golden with silver border</p>
+                        <p><strong>Features:</strong> Perfect for weddings and festive occasions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="saree-item" onclick="toggleFlip(event)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="C:\Users\anuja\OneDrive\Desktop\Sarees\images\WhatsApp Image 2024-10-27 at 7.05.19 PM.jpeg" alt="Diamond Tissue Saree">
+                        <div class="saree-name">Diamond Tissue Saree- New Collection</div>
+                <div class="saree-price">₹1800 (Shipping Included)</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Diamond Tissue Saree - New Collection</h2>
+                        <p><strong>Price:</strong> ₹1800 (Shipping Included)</p>
+                        <p><strong>Colors:</strong> Peach, Mint Green, Ivory, Lavender, Sky Blue</p>
+                        <p><strong>Features:</strong> Intricate zari work, lightweight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="about" class="section">
+            <h1>About Us</h1>
+            <div class="about-us">
+             <img src="C:\Users\anuja\OneDrive\Desktop\Sarees\images\WhatsApp Image 2024-10-27 at 10.34.54 PM.jpeg" alt="image">
+            <p>Our journey began with a love for sarees and a desire to bring unique pieces to every wardrobe. Ch4ru was founded by a dedicated women, Charu Dhumma aiming to celebrate the elegance of traditional and modern saree designs.</p>
+            </div>
         </div>
 
-        <!-- Saree Display -->
-        <div class="saree-item" onclick="showSareeDetails()">
-            <img src="C:\Users\anuja\OneDrive\Desktop\Sarees\images\WhatsApp Image 2024-10-27 at 7.05.19 PM (1).jpeg" alt="Beautiful Saree">
-            <div class="saree-name">Elegant Handloom Saree</div>
-            <div class="saree-price">₹500 (Shipping Included)</div>
+        <div id="contact" class="section">
+            <h1>Contact Us</h1>
+            <p>Connect with us on your preferred platform to place an order:</p>
+            <ul>
+                 <p style="text-align: left;"><strong>  WhatsApp:</strong> +91 89993 68187</p>
+                <p style="text-align: left;"><strong>   Instagram:</strong> [Link to Instagram Page]</p>
+                 <p style="text-align: left;"><strong>  Facebook:</strong> [Link to Facebook Page]</p>
+                 <p style="text-align: left;"><strong>  Gmail:</strong> Ch4ru@gmail.com</p>
+            </ul>
         </div>
 
-        <!-- Saree Details Modal -->
-        <div id="saree-details">
-            <h2>Elegant Handloom Saree</h2>
-            <p><strong>Color:</strong> Deep Red</p>
-            <p><strong>Type:</strong> Silk Cotton Blend</p>
-            <p><strong>Special Features:</strong> Intricate zari work, lightweight, and perfect for festive occasions.</p>
-            <div class="close-btn" onclick="closeSareeDetails()">Close</div>
-        </div>
-    </main>
+        <div id="help" class="section">
+    <h1>Help & Policies</h1>
+
+    <h2 style="text-align: left;"><li>Return Policy</li></h2>
+    <p style="text-align: left;">   You can return any saree within <strong>7 days</strong> of receiving it.</p>
+    <p style="text-align: left;"><strong>   Please note:</strong> Returns are not accepted for any product damaged by the customer or for requests due to color changes.</p>
+    <p style="text-align: left;">   To initiate a return, contact us with your order details, and our team will assist you.</p>
+
+    <h2 style="text-align: left;"><li>How to Buy & Payment</li></h2>
+    <p style="text-align: left;">   To place an order, reach out to us on any platform listed on our <strong>Contact</strong> page.</p>
+    <p style="text-align: left;">   When contacting us, please provide the following details:</p>
+    <ul>
+        <li style="text-align: left;"><strong>  Name of the saree</strong> (as displayed on our website)</li>
+        <li style="text-align: left;"><strong>  Color</strong> of the saree</li>
+    </ul>
+    <p style="text-align: left;"><strong>   Payment</strong> can be made via <strong>Google Pay (GPay)</strong> to the number listed on our Contact page.</p>
+    <p style="text-align: left;">   Once payment is confirmed, your order will be processed, and you’ll receive your saree within <strong>5-10 days</strong>.</p>
+
+    <h2 style="text-align: left;"><li>Help & Frequently Asked Questions</li></h2>
+    <p style="text-align: left;">   For additional questions, details on color options, or further information on any saree, feel free to contact us.</p>
+    <p style="text-align: left;">   Our team is here to help you with any queries about our sarees, including fabric, size, or special features.</p>
+
+    <h2 style="text-align: left;"><li>Quality Assurance</li></h2>
+    <p style="text-align: left;">   We guarantee that all sarees are <strong>authentic</strong> and of <strong>high quality</strong>.</p>
+    <p style="text-align: left;">   If the saree does not meet your expectations, you are welcome to return it (subject to our return policy).</p>
+</div>
 
 </body>
 </html>
